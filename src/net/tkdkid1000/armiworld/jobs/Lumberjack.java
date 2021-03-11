@@ -21,8 +21,8 @@ import com.sk89q.worldedit.function.operation.Operations;
 import com.sk89q.worldedit.session.ClipboardHolder;
 import com.sk89q.worldedit.world.registry.LegacyWorldData;
 
-import net.tkdid1000.armiworld.utils.Locstring;
 import net.tkdkid1000.armiworld.ArmiWorldEconomy;
+import net.tkdkid1000.armiworld.utils.Locstring;
 
 public class Lumberjack implements Listener {
 

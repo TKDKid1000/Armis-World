@@ -1,4 +1,4 @@
-package net.tkdid1000.armiworld.utils;
+package net.tkdkid1000.armiworld.utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;

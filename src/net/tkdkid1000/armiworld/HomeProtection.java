@@ -9,7 +9,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 
 import net.md_5.bungee.api.ChatColor;
-import net.tkdid1000.armiworld.utils.BoundingBox;
+import net.tkdkid1000.armiworld.utils.BoundingBox;
 
 public class HomeProtection implements Listener {
 

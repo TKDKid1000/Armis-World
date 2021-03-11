@@ -1,4 +1,4 @@
-package net.tkdid1000.armiworld.commands;
+package net.tkdkid1000.armiworld.commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

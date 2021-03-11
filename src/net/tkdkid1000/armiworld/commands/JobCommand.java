@@ -1,4 +1,4 @@
-package net.tkdid1000.armiworld.commands;
+package net.tkdkid1000.armiworld.commands;
 
 //import java.math.BigDecimal;
 //import java.util.ArrayList;

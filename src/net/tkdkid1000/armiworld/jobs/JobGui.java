@@ -21,9 +21,9 @@ import net.ess3.api.MaxMoneyException;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
-import net.tkdid1000.armiworld.utils.ItemBuilder;
 import net.tkdkid1000.armiworld.ArmiWorldEconomy;
 import net.tkdkid1000.armiworld.Job;
+import net.tkdkid1000.armiworld.utils.ItemBuilder;
 
 @SuppressWarnings("deprecation")
 public class JobGui implements Listener {

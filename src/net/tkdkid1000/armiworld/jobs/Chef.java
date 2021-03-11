@@ -16,10 +16,10 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import net.md_5.bungee.api.ChatColor;
-import net.tkdid1000.armiworld.utils.Locstring;
-import net.tkdid1000.armiworld.utils.NumberUtil;
 import net.tkdkid1000.armiworld.ArmiWorldEconomy;
 import net.tkdkid1000.armiworld.Job;
+import net.tkdkid1000.armiworld.utils.Locstring;
+import net.tkdkid1000.armiworld.utils.NumberUtil;
 
 public class Chef implements Listener {
 

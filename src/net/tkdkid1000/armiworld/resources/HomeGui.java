@@ -19,9 +19,9 @@ import org.bukkit.inventory.ItemStack;
 
 import net.luckperms.api.node.Node;
 import net.md_5.bungee.api.ChatColor;
-import net.tkdid1000.armiworld.utils.ItemBuilder;
 import net.tkdkid1000.armiworld.ArmiWorldEconomy;
 import net.tkdkid1000.armiworld.Home;
+import net.tkdkid1000.armiworld.utils.ItemBuilder;
 
 @SuppressWarnings("deprecation")
 public class HomeGui implements Listener {

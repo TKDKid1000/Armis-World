@@ -10,15 +10,15 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.earth2me.essentials.Essentials;
 
 import net.luckperms.api.LuckPerms;
-import net.tkdid1000.armiworld.commands.HomeCommand;
-import net.tkdid1000.armiworld.commands.JobCommand;
-import net.tkdid1000.armiworld.commands.ThreadCommand;
-import net.tkdid1000.armiworld.utils.YamlConfig;
+import net.tkdkid1000.armiworld.commands.HomeCommand;
+import net.tkdkid1000.armiworld.commands.JobCommand;
+import net.tkdkid1000.armiworld.commands.ThreadCommand;
 import net.tkdkid1000.armiworld.jobs.Chef;
 import net.tkdkid1000.armiworld.jobs.JobGui;
 import net.tkdkid1000.armiworld.jobs.Lumberjack;
 import net.tkdkid1000.armiworld.resources.HomeGui;
 import net.tkdkid1000.armiworld.resources.Sidebar;
+import net.tkdkid1000.armiworld.utils.YamlConfig;
 
 public class ArmiWorldEconomy extends JavaPlugin {
 
