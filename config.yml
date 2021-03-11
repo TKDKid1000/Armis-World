@@ -1,0 +1,8 @@
+height: 10
+world: "homes"
+jobs:
+  lumberjack:
+    loc: "lumberjack,0,5,0"
+    schematic: "lumberjack"
+  chef:
+    loc: "chef,0,5,0"

@@ -1,0 +1,16 @@
+name: ArmiWorldEconomy
+version: 1.3.0
+main: net.tkdkid1000.armiworld.ArmiWorldEconomy
+depend: [FastAsyncWorldEdit, Essentials]
+author: TKDKid1000
+website: http://tkdkid1000.net
+commands:
+  house:
+    description: Makes a house/teleports to it
+    usage: /house
+  job:
+    description: Job commands
+    usage: /job
+  thread:
+    description: Tries to make a new thread
+    usage: /thread
