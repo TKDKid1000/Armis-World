@@ -66,6 +66,14 @@ public class HomeGui implements Listener {
 				home.setBuild(true);
 				player.sendMessage(ChatColor.GREEN + "Enabled build.");
 			}
+		} else if (clicked.getType() == Material.DIAMOND_SWORD) {
+			if (home.canpvp()) {
+				home.setPvp(false);
+				player.sendMessage(ChatColor.GREEN + "Disabled PvP.");
+			} else {
+				home.setPvp(true);
+				player.sendMessage(ChatColor.GREEN + "Enabled PvP.");
+			}
 		}
 	}
 	
@@ -90,6 +98,13 @@ public class HomeGui implements Listener {
 				.addLore(ChatColor.GRAY + "You can always build, this is just for")
 				.addLore(ChatColor.GRAY + "other players.")
 				.build());
+		inv.addItem(new ItemBuilder(Material.DIAMOND_SWORD, 1)
+				.setName(ChatColor.GREEN + "Toggle PvP")
+				.addLore(ChatColor.GRAY + "Toggles PvP on or off.")
+				.addLore(ChatColor.GRAY + "This is for all players. Even you.")
+				.addLore(ChatColor.DARK_RED + "" + ChatColor.BOLD + "WARNING! Players will be able to kill")
+				.addLore(ChatColor.DARK_RED + "" + ChatColor.BOLD + "others and take items. Use with caution.")
+				.build());
 		player.openInventory(inv);
 	}
 	
@@ -109,8 +124,8 @@ public class HomeGui implements Listener {
 				net.luckperms.api.model.user.User u = armiworldeconomy.luckperms.getPlayerAdapter(Player.class).getUser(player);
 				if (u.getNodes().contains(Node.builder("armisworld.homes."+text).build())) {
 					Location loc = new Location(Bukkit.getWorld(ArmiWorldEconomy.getInstance().config.getString("world")), 0, ArmiWorldEconomy.getInstance().config.getInt("height"), 0);
-					loc.setX(ArmiWorldEconomy.getInstance().homes.getConfig().getKeys(false).size()*10000);
-					loc.setZ(ArmiWorldEconomy.getInstance().homes.getConfig().getKeys(false).size()*10000);
+					loc.setX((ArmiWorldEconomy.getInstance().homes.getConfig().getKeys(false).size()*10000)+10000);
+					loc.setZ((ArmiWorldEconomy.getInstance().homes.getConfig().getKeys(false).size()*10000)+10000);
 					new Home(loc, player, loc.clone().add(100, 50, 100), loc.clone().subtract(100, 50, 100)).create(text);
 					chatinput.remove(player.getUniqueId());
 				} else {

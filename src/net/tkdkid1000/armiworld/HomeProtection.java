@@ -7,6 +7,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 import net.md_5.bungee.api.ChatColor;
 import net.tkdkid1000.armiworld.utils.BoundingBox;
@@ -35,7 +36,7 @@ public class HomeProtection implements Listener {
 		if (!house.contains(loc.toVector())) {
 			if (Home.getHome(loc) != null) {
 				if (!Home.getHome(loc).canbuild()) {
-					player.sendMessage(ChatColor.RED + "You can't build in " + Home.getHome(loc).getOwner().getDisplayName() + "'s house!");
+					player.sendMessage(ChatColor.RED + "You can't build in " + Home.getHome(loc).getOwner().getDisplayName() + ChatColor.RED + "'s house!");
 					event.setCancelled(true);
 				}
 			} else {
@@ -55,12 +56,27 @@ public class HomeProtection implements Listener {
 		if (!house.contains(loc.toVector())) {
 			if (Home.getHome(loc) != null) {
 				if (!Home.getHome(loc).canbuild()) {
-					player.sendMessage(ChatColor.RED + "You can't build in " + Home.getHome(loc).getOwner().getDisplayName() + "'s house!");
+					player.sendMessage(ChatColor.RED + "You can't build in " + Home.getHome(loc).getOwner().getDisplayName() + ChatColor.RED + "'s house!");
 					event.setCancelled(true);
 				}
 			} else {
 				player.sendMessage(ChatColor.RED + "You can't build outside your proprty!");
 				event.setCancelled(true);
+			}
+		}
+	}
+	
+	@EventHandler
+	public void onDamage(EntityDamageByEntityEvent event) {
+		if (event.getEntity() instanceof Player && event.getDamager() instanceof Player) {
+			Player damager = (Player) event.getDamager();
+			Player player = (Player) event.getEntity();
+			Location loc = player.getLocation();
+			if (Home.getHome(loc) != null) {
+				if (!Home.getHome(loc).canpvp()) {
+					damager.sendMessage(ChatColor.RED + "You can't pvp in " + Home.getHome(loc).getOwner().getDisplayName() + ChatColor.RED + "'s house!");
+					event.setCancelled(true);
+				}
 			}
 		}
 	}

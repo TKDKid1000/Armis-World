@@ -43,7 +43,11 @@ public class Sidebar {
 		    lines.add(ChatColor.BLUE + "Money: " + ChatColor.GREEN + ess.getUser(p).getMoney().doubleValue());
 		    lines.add(ChatColor.BLUE + "Rank: " + ChatColor.GRAY + ess.getUser(p).getGroup().substring(0, 1).toUpperCase() + ess.getUser(p).getGroup().substring(1));
 		    if (Home.getHome(p.getLocation()) == null) {
-		    	lines.add(ChatColor.BLUE + "Likes: " + ChatColor.GREEN + Home.getHome(p).getLikes() + ChatColor.GRAY + " (you)");
+		    	if (Home.getHome(p) != null) {
+		    		lines.add(ChatColor.BLUE + "Likes: " + ChatColor.GREEN + Home.getHome(p).getLikes() + ChatColor.GRAY + " (you)");
+		    	} else {
+		    		lines.add(ChatColor.BLUE + "Likes: " + ChatColor.GREEN + "N/A" + ChatColor.GRAY + " (you)");
+		    	}
 		    } else {
 		    	lines.add(ChatColor.BLUE + "Likes: " + ChatColor.GREEN + Home.getHome(p.getLocation()).getLikes());
 		    }

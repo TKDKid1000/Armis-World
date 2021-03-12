@@ -36,6 +36,7 @@ public class Home {
 	private Player player;
 	private boolean build;
 	private int likes;
+	private boolean pvp;
 	YamlConfig homes = ArmiWorldEconomy.getInstance().homes;
 	
 	public Home(Location loc, Player player, Location min, Location max) {
@@ -45,6 +46,7 @@ public class Home {
 		this.max = max;
 		this.build = false;
 		this.likes = 0;
+		this.pvp = false;
 	}
 	
 	public static Home getHome(Player player) {
@@ -95,6 +97,10 @@ public class Home {
 		return homes.getConfig().getInt(player.getUniqueId().toString()+".likes");
 	}
 	
+	public boolean canpvp() {
+		return homes.getConfig().getBoolean(player.getUniqueId().toString()+".pvp");
+	}
+	
 	public Player getOwner() {
 		return this.player;
 	}
@@ -129,9 +135,15 @@ public class Home {
 		homes.save();
 	}
 	
+	public void setPvp(boolean canpvp) {
+		this.pvp = canpvp;
+		homes.getConfig().set(player.getUniqueId().toString()+".pvp", canpvp);
+		homes.save();
+	}
+	
 	public String toString() {
 		return "House{"+"Location="+Locstring.locToString(loc)+",Min="+Locstring.locToString(min)+
-				",Max="+Locstring.locToString(max)+",Build="+build+"Likes="+likes+"}";
+				",Max="+Locstring.locToString(max)+",Build="+build+",Likes="+likes+",PvP"+pvp+"}";
 	}
 	
 	public void create(String schemname) {
@@ -140,6 +152,7 @@ public class Home {
 		homes.getConfig().set(this.player.getUniqueId().toString()+".max", Locstring.locToString(this.max));
 		homes.getConfig().set(this.player.getUniqueId().toString()+".build", false);
 		homes.getConfig().set(this.player.getUniqueId().toString()+".likes", 0);
+		homes.getConfig().set(this.player.getUniqueId().toString()+".pvp", false);
 		homes.save();
 		new BukkitRunnable() {
 
