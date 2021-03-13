@@ -6,3 +6,15 @@ jobs:
     schematic: "lumberjack"
   chef:
     loc: "chef,0,5,0"
+  prisoner:
+    commands:
+      - "buy"
+      - "help"
+      - "store"
+      - "?"
+      - "tell"
+      - "msg"
+      - "message"
+      - "w"
+      - "r"
+      - "reply"
