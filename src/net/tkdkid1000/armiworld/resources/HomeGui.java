@@ -41,14 +41,14 @@ public class HomeGui implements Listener {
 	
 	@EventHandler
 	public void onInventoryClick(InventoryClickEvent event) {
-		if (!event.getInventory().getName().equals(guiname)) return;
+		if (!event.getView().getTitle().equals(guiname)) return;
 		if (!(event.getWhoClicked() instanceof Player)) return;
 		Player player = (Player) event.getWhoClicked();
 		event.setCancelled(true);
 		if (event.getCurrentItem() == null) return;
 		ItemStack clicked = event.getCurrentItem();
 		Home home = Home.getHome(player);
-		if (clicked.getType() == Material.DARK_OAK_DOOR_ITEM) {
+		if (clicked.getType() == Material.DARK_OAK_DOOR) {
 			if (home != null) {
 				player.sendMessage(ChatColor.GREEN + "Teleporting you to your house...");
 				player.teleport(Home.getHome(player).getLocation());
@@ -79,7 +79,7 @@ public class HomeGui implements Listener {
 	
 	public void open(Player player) {
 		Inventory inv = Bukkit.createInventory(null, 9, guiname);
-		inv.addItem(new ItemBuilder(Material.DARK_OAK_DOOR_ITEM, 1)
+		inv.addItem(new ItemBuilder(Material.DARK_OAK_DOOR, 1)
 				.setName(ChatColor.GREEN + "Travel Home")
 				.addLore(ChatColor.GRAY + "Sends you to your house!")
 				.addLore(ChatColor.GRAY + "If you don't have one this won't work.")

@@ -104,6 +104,7 @@ public class ItemBuilder {
 		return this;
 	}
 	
+	@SuppressWarnings("deprecation")
 	public ItemStack build() {
 		ItemStack item = new ItemStack(this.mat, this.count);
 		ItemMeta meta = item.getItemMeta();

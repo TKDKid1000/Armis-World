@@ -51,7 +51,7 @@ public class Home {
 	
 	public static Home getHome(Player player) {
 		YamlConfig homes = ArmiWorldEconomy.getInstance().homes;
-		if (homes.contains(player.getUniqueId().toString())) {
+		if (homes.getConfig().getKeys(false).contains(player.getUniqueId().toString())) {
 			ConfigurationSection home = homes.getConfig().getConfigurationSection(player.getUniqueId().toString());
 			Location loc = Locstring.stringToLoc(home.getString("location"));
 			Location min = Locstring.stringToLoc(home.getString("min"));

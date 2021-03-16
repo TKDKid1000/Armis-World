@@ -24,10 +24,14 @@ public class Guard implements Listener {
 	@EventHandler
 	public void onDeath(PlayerDeathEvent event) {
 		Player player = event.getEntity();
-		if (player.getInventory().contains(Material.IRON_PLATE) && Job.getJob(player) == Job.Jobs.PRISONER) {
-			player.getInventory().remove(Material.IRON_PLATE);
-			if (Job.getJob(player.getKiller()) == Job.Jobs.GUARD) {
-				player.getKiller().sendMessage(ChatColor.RED + "You stopped " + player.getDisplayName() + " from escaping!");
+		if (Job.getJob(player) == Job.Jobs.PRISONER) {
+			if (player.getInventory().contains(Material.IRON_BARS)) {
+				player.getInventory().remove(Material.IRON_BARS);
+				if (Job.getJob(player.getKiller()) == Job.Jobs.GUARD) {
+					player.getKiller().sendMessage(ChatColor.GREEN + "You stopped " + player.getDisplayName() + " from escaping!");
+				}
+			} else {
+				player.getKiller().sendMessage(ChatColor.RED + "... You just killed a prisoner.");
 			}
 		}
 	}

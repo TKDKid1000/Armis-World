@@ -25,10 +25,10 @@ public class Job implements Listener {
 	public enum Jobs {
 		CHEF("chef", Material.COOKED_BEEF, 32, 10.0),
 		POLICE("police", Material.EMERALD, 10, 50.0),
-		GUARD("guard", Material.IRON_PLATE, 1, 50.0),
-		LUMBERJACK("lumberjack", Material.LOG, 32, 10.0),
-		DEFAULT("default", Material.DIAMOND, 10, 5.0),
-		PRISONER("prisoner", Material.DIAMOND, 64, 1.0);
+		GUARD("guard", Material.IRON_BARS, 1, 50.0),
+		LUMBERJACK("lumberjack", Material.OAK_LOG, 32, 10.0),
+		DEFAULT("default", Material.DIAMOND, 1, 1.0),
+		PRISONER("prisoner", Material.DIAMOND, 1, 1.0);
 
 		private String string;
 		private Material mat;

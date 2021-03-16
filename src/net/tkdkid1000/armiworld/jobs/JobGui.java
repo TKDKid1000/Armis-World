@@ -46,13 +46,13 @@ public class JobGui implements Listener {
 	
 	@EventHandler
 	public void onInventoryClick(InventoryClickEvent event) {
-		if (!event.getInventory().getName().equals(guiname)) return;
+		if (!event.getView().getTitle().equals(guiname)) return;
 		if (!(event.getWhoClicked() instanceof Player)) return;
 		Player player = (Player) event.getWhoClicked();
 		event.setCancelled(true);
 		if (event.getCurrentItem() == null) return;
 		ItemStack clicked = event.getCurrentItem();
-		if (clicked.getType() == Material.BANNER) {
+		if (clicked.getType() == Material.BLACK_BANNER) {
 			player.sendMessage(ChatColor.GREEN + "Please select a job: (click to select)");
 			for (Job.Jobs job : Job.Jobs.values()) {
 				
@@ -91,7 +91,7 @@ public class JobGui implements Listener {
 	
 	public void open(Player player) {
 		Inventory inv = Bukkit.createInventory(null, 9, guiname);
-		inv.addItem(new ItemBuilder(Material.BANNER, 1)
+		inv.addItem(new ItemBuilder(Material.BLACK_BANNER, 1)
 				.setName(ChatColor.GREEN + "Info")
 				.addLore(ChatColor.GRAY + "Gets the info of the specified job.")
 				.addLore(ChatColor.GRAY + "Contains the pay, and items needed.")

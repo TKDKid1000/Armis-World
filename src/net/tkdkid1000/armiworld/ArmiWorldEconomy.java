@@ -14,9 +14,13 @@ import net.tkdkid1000.armiworld.commands.HomeCommand;
 import net.tkdkid1000.armiworld.commands.JobCommand;
 import net.tkdkid1000.armiworld.commands.ThreadCommand;
 import net.tkdkid1000.armiworld.jobs.Chef;
+import net.tkdkid1000.armiworld.jobs.Guard;
 import net.tkdkid1000.armiworld.jobs.JobGui;
 import net.tkdkid1000.armiworld.jobs.Lumberjack;
+import net.tkdkid1000.armiworld.jobs.Prisoner;
 import net.tkdkid1000.armiworld.resources.HomeGui;
+import net.tkdkid1000.armiworld.resources.Piano;
+import net.tkdkid1000.armiworld.resources.Portal;
 import net.tkdkid1000.armiworld.resources.Sidebar;
 import net.tkdkid1000.armiworld.utils.YamlConfig;
 
@@ -47,6 +51,10 @@ public class ArmiWorldEconomy extends JavaPlugin {
 		new JobGui(this).register();
 		new ThreadCommand(this).register();
 		new Chef(this).register();
+		new Portal(this).register();
+		new Guard(this).register();
+		new Prisoner(this).register();
+		new Piano(this).register();
 		if (Bukkit.getWorld(config.getString("world")) != null) {
 			new WorldCreator(config.getString("world"))
 					.environment(Environment.NORMAL)

@@ -36,10 +36,10 @@ public class Sidebar {
 		    lines.add("&7" + new java.sql.Date(System.currentTimeMillis()).toString().replace("-", "/"));
 		    lines.add("");
 		    if (Home.getHome(p.getLocation()) == null) {
-		    	lines.add(ChatColor.BLUE + "Home: " + ChatColor.RED + "NONE");
-		    } else {
-		    	lines.add(ChatColor.BLUE + "Home: " + ChatColor.RED + Home.getHome(p.getLocation()).getOwner().getDisplayName());
-		    }
+			   	lines.add(ChatColor.BLUE + "Home: " + ChatColor.RED + "NONE");
+			} else {
+			   	lines.add(ChatColor.BLUE + "Home: " + ChatColor.RED + Home.getHome(p.getLocation()).getOwner().getDisplayName());
+			}
 		    lines.add(ChatColor.BLUE + "Money: " + ChatColor.GREEN + ess.getUser(p).getMoney().doubleValue());
 		    lines.add(ChatColor.BLUE + "Rank: " + ChatColor.GRAY + ess.getUser(p).getGroup().substring(0, 1).toUpperCase() + ess.getUser(p).getGroup().substring(1));
 		    if (Home.getHome(p.getLocation()) == null) {

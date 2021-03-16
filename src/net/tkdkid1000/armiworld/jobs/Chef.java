@@ -56,7 +56,7 @@ public class Chef implements Listener {
 				if (event.getRawSlot() == 1) {
 					furnace.setFuel(new ItemStack(Material.STICK, 8));
 					event.setCancelled(true);
-				} else if (!(event.getRawSlot() == 0 || event.getRawSlot() == 2 || mat.equals(Material.RAW_BEEF))) {
+				} else if (!(event.getRawSlot() == 0 || event.getRawSlot() == 2 || mat.equals(Material.BEEF))) {
 					player.sendMessage(ChatColor.RED + "Click on the fuel slot to refuel it!");
 					event.setCancelled(true);
 				}
