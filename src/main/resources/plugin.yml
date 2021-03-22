@@ -1,5 +1,5 @@
 name: ArmiWorldEconomy
-version: 1.5.0
+version: ${project.version}
 main: net.tkdkid1000.armiworld.ArmiWorldEconomy
 depend: [FastAsyncWorldEdit, Essentials]
 author: TKDKid1000

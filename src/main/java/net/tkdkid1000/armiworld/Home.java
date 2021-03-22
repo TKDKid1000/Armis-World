@@ -181,6 +181,7 @@ public class Home {
 			}
 			
 		}.runTaskAsynchronously(ArmiWorldEconomy.getInstance());
+		
 		new BukkitRunnable() {
 
 			@Override
