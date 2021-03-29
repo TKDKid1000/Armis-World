@@ -119,7 +119,7 @@ public class HomeGui implements Listener {
 				chatinput.remove(player.getUniqueId());
 				return;
 			}
-			File schematics = new File("plugins"+File.separator+"WorldEdit"+File.separator+"schematics");
+			File schematics = new File("plugins"+File.separator+"FastAsyncWorldEdit"+File.separator+"schematics");
 			if (Arrays.asList(schematics.listFiles()).contains(new File("plugins"+File.separator+"FastAsyncWorldEdit"+File.separator+"schematics", text+".schem"))) {
 				net.luckperms.api.model.user.User u = armiworldeconomy.luckperms.getPlayerAdapter(Player.class).getUser(player);
 				if (u.getNodes().contains(Node.builder("armisworld.homes."+text).build())) {
