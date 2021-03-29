@@ -22,6 +22,7 @@ import net.tkdkid1000.armiworld.resources.HomeGui;
 import net.tkdkid1000.armiworld.resources.Piano;
 import net.tkdkid1000.armiworld.resources.Portal;
 import net.tkdkid1000.armiworld.resources.Sidebar;
+import net.tkdkid1000.armiworld.resources.Spotlight;
 import net.tkdkid1000.armiworld.utils.YamlConfig;
 
 public class ArmiWorldEconomy extends JavaPlugin {
@@ -55,6 +56,7 @@ public class ArmiWorldEconomy extends JavaPlugin {
 		new Guard(this).register();
 		new Prisoner(this).register();
 		new Piano(this).register();
+		new Spotlight(this).register();
 		if (Bukkit.getWorld(config.getString("world")) != null) {
 			new WorldCreator(config.getString("world"))
 					.environment(Environment.NORMAL)

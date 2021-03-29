@@ -120,7 +120,7 @@ public class HomeGui implements Listener {
 				return;
 			}
 			File schematics = new File("plugins"+File.separator+"WorldEdit"+File.separator+"schematics");
-			if (Arrays.asList(schematics.listFiles()).contains(new File("plugins"+File.separator+"WorldEdit"+File.separator+"schematics", text+".schematic"))) {
+			if (Arrays.asList(schematics.listFiles()).contains(new File("plugins"+File.separator+"FastAsyncWorldEdit"+File.separator+"schematics", text+".schem"))) {
 				net.luckperms.api.model.user.User u = armiworldeconomy.luckperms.getPlayerAdapter(Player.class).getUser(player);
 				if (u.getNodes().contains(Node.builder("armisworld.homes."+text).build())) {
 					Location loc = new Location(Bukkit.getWorld(ArmiWorldEconomy.getInstance().config.getString("world")), 0, ArmiWorldEconomy.getInstance().config.getInt("height"), 0);
