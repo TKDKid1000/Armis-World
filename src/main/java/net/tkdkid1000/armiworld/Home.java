@@ -13,16 +13,16 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import com.boydti.fawe.FaweAPI;
 import com.sk89q.worldedit.EditSession;
-import com.sk89q.worldedit.Vector;
 import com.sk89q.worldedit.WorldEdit;
 import com.sk89q.worldedit.WorldEditException;
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
+import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormats;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardReader;
 import com.sk89q.worldedit.function.operation.Operation;
 import com.sk89q.worldedit.function.operation.Operations;
+import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldedit.session.ClipboardHolder;
-import com.sk89q.worldedit.world.registry.LegacyWorldData;
 
 import net.tkdkid1000.armiworld.utils.BoundingBox;
 import net.tkdkid1000.armiworld.utils.Locstring;
@@ -159,16 +159,17 @@ public class Home {
 			@Override
 			public void run() {
 				Clipboard clipboard;
-				File schem = new File("plugins"+File.separator+"WorldEdit"+File.separator+"schematics"+File.separator+schemname+".schematic");
-				ClipboardFormat format = ClipboardFormat.findByFile(schem);
+				File schem = new File("plugins"+File.separator+"FastAsyncWorldEdit"+File.separator+"schematics"+File.separator+schemname+".schem");
+				ClipboardFormat format = ClipboardFormats.findByFile(schem);
 				try {
 					ClipboardReader reader = format.getReader(new FileInputStream(schem));
-					clipboard = reader.read(LegacyWorldData.getInstance());
+					clipboard = reader.read();
 
+					@SuppressWarnings("deprecation")
 					EditSession editSession = WorldEdit.getInstance().getEditSessionFactory().getEditSession(FaweAPI.getWorld(loc.getWorld().getName()), -1);
-					Operation operation = new ClipboardHolder(clipboard, LegacyWorldData.getInstance())
-				            .createPaste(editSession, LegacyWorldData.getInstance())
-				            .to(new Vector(loc.getX(), loc.getY(), loc.getZ()))
+					Operation operation = new ClipboardHolder(clipboard)
+				            .createPaste(editSession)
+				            .to(BlockVector3.at(loc.getX(), loc.getY(), loc.getZ()))
 				            .build();
 					try {
 						Operations.complete(operation);
