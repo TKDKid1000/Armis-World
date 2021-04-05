@@ -12,9 +12,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import com.boydti.fawe.FaweAPI;
+import com.boydti.fawe.util.EditSessionBuilder;
 import com.sk89q.worldedit.EditSession;
-import com.sk89q.worldedit.WorldEdit;
-import com.sk89q.worldedit.WorldEditException;
 import com.sk89q.worldedit.extent.clipboard.Clipboard;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormats;
@@ -165,17 +164,12 @@ public class Home {
 					ClipboardReader reader = format.getReader(new FileInputStream(schem));
 					clipboard = reader.read();
 
-					@SuppressWarnings("deprecation")
-					EditSession editSession = WorldEdit.getInstance().getEditSessionFactory().getEditSession(FaweAPI.getWorld(loc.getWorld().getName()), -1);
+					EditSession editSession = new EditSessionBuilder(FaweAPI.getWorld(loc.getWorld().getName())).allowedRegionsEverywhere().limitUnlimited().fastmode(true).build();
 					Operation operation = new ClipboardHolder(clipboard)
 				            .createPaste(editSession)
 				            .to(BlockVector3.at(loc.getX(), loc.getY(), loc.getZ()))
 				            .build();
-					try {
-						Operations.complete(operation);
-					} catch (WorldEditException e) {
-						e.printStackTrace();
-					}
+					Operations.complete(operation);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
