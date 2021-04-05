@@ -164,7 +164,7 @@ public class Home {
 					ClipboardReader reader = format.getReader(new FileInputStream(schem));
 					clipboard = reader.read();
 
-					EditSession editSession = new EditSessionBuilder(FaweAPI.getWorld(loc.getWorld().getName())).allowedRegionsEverywhere().limitUnlimited().fastmode(true).build();
+					EditSession editSession = new EditSessionBuilder(FaweAPI.getWorld(loc.getWorld().getName())).allowedRegionsEverywhere().limitUnlimited().fastmode(false).build();
 					Operation operation = new ClipboardHolder(clipboard)
 				            .createPaste(editSession)
 				            .to(BlockVector3.at(loc.getX(), loc.getY(), loc.getZ()))
