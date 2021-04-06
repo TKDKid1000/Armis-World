@@ -144,7 +144,7 @@ public class JobGui implements Listener {
 			event.setCancelled(true);
 			if (text.equalsIgnoreCase("end") || text.equalsIgnoreCase("cancel") || text.equalsIgnoreCase("exit") || text.equalsIgnoreCase("stop")) {
 				player.sendMessage(ChatColor.GREEN + "Cancelled hiring.");
-				infochatinput.remove(player.getUniqueId());
+				hirechatinput.remove(player.getUniqueId());
 				return;
 			}
 			if (Job.Jobs.getJobsListString().contains(text.toLowerCase())) {

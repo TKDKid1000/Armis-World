@@ -145,7 +145,7 @@ public class Home {
 				",Max="+Locstring.locToString(max)+",Build="+build+",Likes="+likes+",PvP"+pvp+"}";
 	}
 	
-	public void create(String schemname) {
+	public void create() {
 		homes.getConfig().set(this.player.getUniqueId().toString()+".location", Locstring.locToString(this.loc));
 		homes.getConfig().set(this.player.getUniqueId().toString()+".min", Locstring.locToString(this.min));
 		homes.getConfig().set(this.player.getUniqueId().toString()+".max", Locstring.locToString(this.max));
@@ -153,29 +153,6 @@ public class Home {
 		homes.getConfig().set(this.player.getUniqueId().toString()+".likes", 0);
 		homes.getConfig().set(this.player.getUniqueId().toString()+".pvp", false);
 		homes.save();
-		new BukkitRunnable() {
-
-			@Override
-			public void run() {
-				Clipboard clipboard;
-				File schem = new File("plugins"+File.separator+"FastAsyncWorldEdit"+File.separator+"schematics"+File.separator+schemname+".schem");
-				ClipboardFormat format = ClipboardFormats.findByFile(schem);
-				try {
-					ClipboardReader reader = format.getReader(new FileInputStream(schem));
-					clipboard = reader.read();
-
-					EditSession editSession = new EditSessionBuilder(FaweAPI.getWorld(loc.getWorld().getName())).allowedRegionsEverywhere().limitUnlimited().fastmode(false).build();
-					Operation operation = new ClipboardHolder(clipboard)
-				            .createPaste(editSession)
-				            .to(BlockVector3.at(loc.getX(), loc.getY(), loc.getZ()))
-				            .build();
-					Operations.complete(operation);
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-			
-		}.runTaskAsynchronously(ArmiWorldEconomy.getInstance());
 		
 		new BukkitRunnable() {
 
